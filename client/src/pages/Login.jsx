@@ -14,6 +14,9 @@ function LoginInner({ onLogin }) {
     e.preventDefault(); setError(""); setLoading(true);
     try {
       const res = await axios.post("/auth/login", { username, password });
+      // Save both token AND role
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("role",  res.data.role);
       onLogin(res.data.token);
       navigate("/dashboard");
     } catch (err) {

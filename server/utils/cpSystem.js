@@ -1,8 +1,10 @@
+// cpSystem.js — Combat Power calculation (SEN included)
 function calculateCP(user) {
-  return (
-    user.str * 2.5 +
-    user.agi * 2.2 +
-    user.sta * 1.8
+  return Math.round(
+    (user.str || 0) * 2.5 +
+    (user.agi || 0) * 2.2 +
+    (user.sta || 0) * 1.8 +
+    (user.sen || 0) * 1.5  // SEN contributes to CP
   );
 }
 

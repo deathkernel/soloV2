@@ -1,5 +1,7 @@
 const jwt = require("jsonwebtoken");
 
+const SECRET = process.env.JWT_SECRET || "shadowmonarch_secret";
+
 module.exports = function (req, res, next) {
 
   const authHeader = req.header("Authorization");
@@ -11,7 +13,7 @@ module.exports = function (req, res, next) {
     : authHeader;
 
   try {
-    const decoded = jwt.verify(token, "secretkey");
+    const decoded = jwt.verify(token, SECRET);
     req.user = decoded;
     next();
   } catch {
