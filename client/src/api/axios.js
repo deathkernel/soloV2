@@ -1,9 +1,10 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "/api",  // Vite proxy handle karega — no hardcoded IP needed
+  baseURL: import.meta.env.VITE_API_URL,
 });
 
+// Attach token automatically
 instance.interceptors.request.use(config => {
   const token = localStorage.getItem("token");
   if (token) {
