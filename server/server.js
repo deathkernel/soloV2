@@ -9,30 +9,42 @@ const adminRoutes   = require("./routes/admin");
 
 const app = express();
 
-app.use(cors({ origin: "*" }));
+// Middleware
+app.use(cors());
 app.use(express.json({ limit: "10mb" }));
 
-// ─── Serve uploaded combat images statically ─────────────────────────────────
+// Static files
 app.use("/combat-images", express.static(path.join(__dirname, "public/combat-images")));
 
-mongoose.connect("mongodb://127.0.0.1:27017/solo-system")
+// Root route (important for Render test)
+app.get("/", (req, res) => {
+  res.send("Solo System Backend Running 🚀");
+});
+
+// MongoDB (USE ENV VARIABLE)
+mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("✓ MongoDB Connected"))
   .catch(err => console.error("✗ MongoDB Error:", err));
 
+// Routes
 app.use("/api/auth",    authRoutes);
 app.use("/api/workout", workoutRoutes);
 app.use("/api/admin",   adminRoutes);
 
+// 404
 app.use((req, res) => {
   res.status(404).json({ message: `Route ${req.method} ${req.url} not found` });
 });
 
+// Error handler
 app.use((err, req, res, next) => {
   console.error("Unhandled error:", err);
   res.status(500).json({ message: "Internal server error" });
 });
 
-app.listen(5000, "0.0.0.0", () => {
-  console.log("✓ Server running on http://0.0.0.0:5000");
-  console.log("✓ Access from phone at http://<YOUR_PC_IP>:5000");
+// IMPORTANT: Use Render Port
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`✓ Server running on port ${PORT}`);
 });
