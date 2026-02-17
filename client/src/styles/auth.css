@@ -1,0 +1,109 @@
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: black;
+}
+
+.auth-panel {
+  width: 400px;
+  padding: 40px;
+  border: 1px solid #00bfff;
+  background: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 40px #00bfff44;
+  text-align: center;
+}
+
+.auth-title {
+  margin-bottom: 30px;
+  color: #00bfff;
+  text-shadow: 0 0 15px #00bfff;
+  letter-spacing: 3px;
+}
+
+.auth-panel form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-panel input {
+  margin-bottom: 20px;
+  padding: 12px;
+  background: black;
+  border: 1px solid #00bfff;
+  color: #00bfff;
+  outline: none;
+  font-family: "Orbitron", sans-serif;
+}
+
+.auth-panel input:focus {
+  box-shadow: 0 0 15px #00bfff;
+}
+
+.auth-panel button {
+  padding: 12px;
+  border: 1px solid #00bfff;
+  background: transparent;
+  color: #00bfff;
+  cursor: pointer;
+  letter-spacing: 2px;
+  transition: 0.2s;
+}
+
+.auth-panel button:hover {
+  background: rgba(0, 191, 255, 0.1);
+  box-shadow: 0 0 20px #00bfff;
+}
+
+.auth-link {
+  margin-top: 20px;
+  color: #00bfff;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+}
+/* SCAN ANIMATION */
+
+.scan-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.scan-text {
+  font-size: 12px;
+  margin-bottom: 10px;
+  color: #00bfff;
+  text-shadow: 0 0 10px #00bfff;
+}
+
+.scan-bar {
+  width: 100%;
+  height: 8px;
+  border: 1px solid #00bfff;
+  overflow: hidden;
+}
+
+.scan-fill {
+  height: 100%;
+  width: 0%;
+  background: #00bfff;
+  animation: scanMove 2s linear forwards;
+  box-shadow: 0 0 15px #00bfff;
+}
+
+@keyframes scanMove {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+/* ERROR */
+
+.error-text {
+  margin-top: 15px;
+  color: red;
+  text-shadow: 0 0 10px red;
+}

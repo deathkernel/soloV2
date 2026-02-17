@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  background: radial-gradient(circle at center, #0a1625, #050b14);
+  color: #00bfff;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.hud-container {
+  padding: 40px;
+}
+
+.panel {
+  border: 1px solid #00bfff;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 20px #00bfff55;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.glow-text {
+  text-shadow: 0 0 10px #00bfff;
+}
+
+.button-hud {
+  background: transparent;
+  border: 1px solid #00bfff;
+  color: #00bfff;
+  padding: 10px 20px;
+  cursor: pointer;
+}
