@@ -1,10 +1,11 @@
 import axios from "axios";
 
-const instance = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
-});
+// Production: Use environment variable
+// Development: Use local proxy
+const baseURL = import.meta.env.VITE_API_URL || "/api";
 
-// Attach token automatically
+const instance = axios.create({ baseURL });
+
 instance.interceptors.request.use(config => {
   const token = localStorage.getItem("token");
   if (token) {

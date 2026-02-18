@@ -2,7 +2,8 @@ import axios from "../api/axios";
 
 function WorkoutCard({ refresh }) {
   const completeWorkout = async () => {
-    await axios.post("/workout/complete");
+    await api.post
+("/workout/complete");
     refresh();
   };
 

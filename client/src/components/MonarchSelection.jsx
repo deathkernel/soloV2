@@ -15,7 +15,8 @@ const monarchs = [
 function MonarchSelection({ refresh }) {
 
   const choose = async (name) => {
-    await axios.post("/workout/choose-monarch", { monarch: name });
+    await api.post
+("/workout/choose-monarch", { monarch: name });
     refresh();
   };
 

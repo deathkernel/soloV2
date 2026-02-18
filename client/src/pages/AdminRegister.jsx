@@ -40,7 +40,8 @@ export default function AdminRegister() {
 
     setLoading(true);
     try {
-      await axios.post("/auth/admin-register", {
+      await api.post
+("/auth/admin-register", {
         username:   form.username,
         password:   form.password,
         fullName:   form.fullName,

@@ -19,7 +19,8 @@ function Register() {
   const handleRegister = async (e) => {
     e.preventDefault(); setError(""); setLoading(true);
     try {
-      await axios.post("/auth/register", { ...form, photo });
+      await api.post
+("/auth/register", { ...form, photo });
       navigate("/");
     } catch (err) {
       setError(err.response?.data?.message || "Registration failed");

@@ -18,7 +18,8 @@ function WorkoutPanel({ refreshProfile }) {
   const complete = async () => {
     setCompleting(true);
     try {
-      await axios.post("/workout/complete");
+      await api.post
+("/workout/complete");
     } catch { /* endpoint may not exist yet */ }
     finally {
       setDone(true);
